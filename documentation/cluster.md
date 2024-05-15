@@ -1,6 +1,6 @@
 ### Cluster setup
 
-## Wifi network, for initia1 setup
+## Wifi network, for initial setup
 
 1. **Find wireless network adapter**: 
    ```bash
