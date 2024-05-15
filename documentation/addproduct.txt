@@ -1,0 +1,2 @@
+INSERT INTO "Products" (id, title, price, rating, brand, description, sizes, sku, stock, thumbnail, "createdAt", "updatedAt") 
+VALUES (25, 'Booster', 27, 4, 'Faxe Kondi', 'beverage', 'L', 90774899, 1092, 'https://www.nemlig.com/scommerce/images/booster-original-daase.jpg?i=-Vx8l2zR/5011494', '2024-05-15 11:10:11.515+00', '2024-05-15 11:10:11.515+00');
