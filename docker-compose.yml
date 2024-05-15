@@ -25,6 +25,8 @@ services:
       POSTGRES_USER: youruser
       POSTGRES_PASSWORD: yourpassword
       POSTGRES_DB: yourdatabase
+    ports:
+      - "5432:5432"  # Expose PostgreSQL port
 
 volumes:
   db-data:

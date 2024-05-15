@@ -10,4 +10,5 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# Add migration and seeding commands
+CMD ["sh", "-c", "npm run db:migrate && npm run db:seed && npm start"]
