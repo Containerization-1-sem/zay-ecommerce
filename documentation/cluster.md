@@ -46,10 +46,12 @@
    <node-name>
 
 3. **Change hosts in /etc folder**
+   ```bash
    sudo vim hosts
    127.0.0.1 <node-name>
 
 4. **Reboot the node for changes to take effect**
+   ```bash
    sudo reboot
 
 
