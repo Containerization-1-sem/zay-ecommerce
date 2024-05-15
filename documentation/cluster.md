@@ -41,3 +41,28 @@
 
    sudo reboot
 
+## Docker Swarm setup
+
+1. **ssh from pc/mac into nodes**: 
+   ```bash
+   ssh <username>@<ip-address> -p 22
+
+2. **install and enable docker on nodes (update is recommented)**:
+   ```bash
+   sudo apt update
+   sudo apt install -y docker.io 
+   sudo systemctl start docker
+   sudo systemctl enable docker
+
+3. **Initialize Docker Swarn on manager node**: 
+   ```bash
+   sudo docker swarm init
+
+4. **Add nodes to swarm**:
+   ```bash
+   docker swarm join --token <token> <manager ip-address>:2377
+
+5. **Confirm swarm**:
+   ```bash
+   sudo docker node ls
+   
