@@ -35,14 +35,16 @@
    ```bash
    cd /etc
 
-2. **change hostname in /etc folder**: 
+2. **Change hostname in /etc folder**: 
    ```bash
    sudo vim hostname
    <node-name>
 
+3. **Change hosts in /etc folder**
    sudo vim hosts
    127.0.0.1 <node-name>
 
+4. **Reboot the node for changes to take effect**
    sudo reboot
 
 ## Docker Swarm setup
