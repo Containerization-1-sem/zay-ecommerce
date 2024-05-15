@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    build: ./frontend
+    image: zay-ecommerce-frontend:latest
     ports:
       - "3001:3001"
     depends_on:
@@ -10,10 +10,10 @@ services:
     deploy:
       replicas: 1
       placement:
-        constraints: [node.role == worker]  # Ensure it runs on a worker node
+        constraints: [node.role == worker]
 
   backend:
-    build: ./backend
+    image: zay-ecommerce-backend:latest
     ports:
       - "3000:3000"
     environment:
@@ -21,14 +21,14 @@ services:
     depends_on:
       - db
     deploy:
-      replicas: 2  
+      replicas: 2
       update_config:
         parallelism: 1
         delay: 10s
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [node.role == worker] 
+        constraints: [node.role == worker]
 
   db:
     image: postgres:13
@@ -39,16 +39,16 @@ services:
       POSTGRES_PASSWORD: yourpassword
       POSTGRES_DB: yourdatabase
     ports:
-      - "5432:5432" 
+      - "5432:5432"
     deploy:
-      replicas: 1 
+      replicas: 1
       update_config:
         parallelism: 1
         delay: 10s
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [node.role == worker] 
+        constraints: [node.role == worker]
 
 volumes:
   db-data:
