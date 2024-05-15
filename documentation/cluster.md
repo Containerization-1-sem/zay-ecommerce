@@ -2,11 +2,15 @@
 
 ## Wifi network, for initia1 setup
 
-1. **find wireless network adapter**: 
+1. **Find wireless network adapter**: 
    ```bash
    ip add
 
-2. **change wifi netplan yaml file in the /etc/netplan directory**: 
+2. **Navigate to netplan directory**
+   ```bash
+   cd /etc/netplan
+
+3. **Change wifi netplan .yaml file in the /etc/netplan directory with vim**: 
    ```bash
    sudo vim 00-installer-config-wifi.yaml
 
@@ -29,6 +33,7 @@
    ```bash
    ip a
 
+
 ## Hostname setup for nodes
 
 1. **Navigate to /etc folder**
@@ -46,6 +51,7 @@
 
 4. **Reboot the node for changes to take effect**
    sudo reboot
+
 
 ## Docker Swarm setup
 
