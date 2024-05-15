@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: yourusername/zay-ecommerce-frontend:latest
+    image: bast38900/zay-ecommerce-frontend:latest
     ports:
       - "3001:3001"
     depends_on:
@@ -13,7 +13,7 @@ services:
         constraints: [node.role == worker]
 
   backend:
-    image: yourusername/zay-ecommerce-backend:latest
+    image: bast38900/zay-ecommerce-backend:latest
     ports:
       - "3000:3000"
     environment:
