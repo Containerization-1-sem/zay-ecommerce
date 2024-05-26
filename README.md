@@ -176,6 +176,7 @@ See ours:
 4. **interactive terminal into a container**
    ```bash
    sudo docker exec -it zukj2k6chfbj /bin/bash
+   ```
 
 ## Testing
 
