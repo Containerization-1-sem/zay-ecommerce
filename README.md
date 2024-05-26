@@ -25,14 +25,17 @@ The frontend is based on the following template:
 1. **Find wireless network adapter**: 
    ```bash
    ip add
+   ```
 
 2. **Navigate to netplan directory**
    ```bash
    cd /etc/netplan
+   ```
 
 3. **Change wifi netplan .yaml file in the /etc/netplan directory with vim**: 
    ```bash
    sudo vim 00-installer-config-wifi.yaml
+   ```
 
    network:
     version: 2
@@ -48,10 +51,12 @@ The frontend is based on the following template:
    ```bash
    sudo netplan apply
    sudo reboot
+   ```
 
 5. **Confirm the network is running**:
    ```bash
    ip a
+   ```
 
 
 ## Hostname setup for nodes
@@ -59,20 +64,24 @@ The frontend is based on the following template:
 1. **Navigate to /etc folder**
    ```bash
    cd /etc
+   ```
 
 2. **Change hostname in /etc folder**: 
    ```bash
    sudo vim hostname
-   <node-name>
+   ```
+   change <node-name>
 
 3. **Change hosts in /etc folder**
    ```bash
    sudo vim hosts
-   127.0.0.1 <node-name>
+   ```
+   change 127.0.0.1 <node-name>
 
 4. **Reboot the node for changes to take effect**
    ```bash
    sudo reboot
+   ```
 
 
 ## Docker Swarm setup
@@ -80,6 +89,7 @@ The frontend is based on the following template:
 1. **ssh from pc/mac into nodes**: 
    ```bash
    ssh <username>@<ip-address> -p 22
+   ```
 
 2. **Install and enable docker on nodes (update is recommended)**:
    ```bash
@@ -87,20 +97,24 @@ The frontend is based on the following template:
    sudo apt install -y docker.io 
    sudo systemctl start docker
    sudo systemctl enable docker
+   ```
 
 3. **Initialize Docker Swarm on manager node**: 
    ```bash
    sudo docker swarm init
+   ```
 
 Save your token to use for setting up workers.
 
 4. **Add workers to swarm**:
    ```bash
    docker swarm join --token <token> <manager ip-address>:2377
+   ```
 
 5. **Confirm swarm exists**:
    ```bash
    sudo docker node ls
+   ```
 
 
 
@@ -129,18 +143,22 @@ See ours:
    ```bash
    ssh <username>@<ip-address of manager node> -p 22
    git clone <repository path>
+   ```
 
 4. **build images from dockerfiles**
    ```bash
    sudo docker build -t bast38900/zay-ecommerce-frontend:latest ./frontend
+   ```
 
 5. **tag image**
    ```bash
    sudo docker tag bast38900/zay-ecommerce-frontend:latest bast38900/zay-ecommerce-frontend:latest
+   ```
 
 6. **push to docker hub**
    ```bash
    sudo docker push bast38900/zay-ecommerce-frontend:latest
+   ```
 
 7. **Repeat for second image**
    repeat step 4-6 for backend image
@@ -157,6 +175,7 @@ See ours:
 1.  **Create stack**
    ```bash
    docker stack deploy -c docker-compose.yml zstack
+   ```
 
 2.  **Confirm stack**
    ```bash
@@ -168,10 +187,12 @@ See ours:
 
    # See containers
    sudo docker stack ps zaystack
+   ```
 
 3. **See info about a container (ex. ip addres)**
    ```bash
    sudo docker inspect node02
+   ```
 
 4. **interactive terminal into a container**
    ```bash
@@ -196,7 +217,7 @@ response: created
    ```bash
    sudo apt-get install postgresql-client
    sudo psql -h 192.168.10.31 -p 5432 -U youruser -d yourdatabase
-   ````
+   ```
 
 type in supersecret password and do your stuff...
 
