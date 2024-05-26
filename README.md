@@ -145,7 +145,9 @@ See ours:
    repeat step 4-6 for backend image
 
 8. **Confirm images**
+   ```bash
    sudo docker images
+   ```
 
    check on [dockerhub](https://hub.docker.com/)
 
@@ -173,6 +175,28 @@ See ours:
 4. **interactive terminal into a container**
    ```bash
    sudo docker exec -it zukj2k6chfbj /bin/bash
+
+## Testing
+
+1. **Confirm that the frontend applikation is running**
+
+http://192.168.47.217:3001/shop => maybe changed after swarm restart
+
+2. **Test backend and database is working**
+
+Via Postman, send a GET request to create a test product
+
+request: http://192.168.47.217:3000/test => maybe changed after swarm restart
+
+response: created
+
+3. **Access the PostGreSQL db from manager**
+   ```bash
+   sudo apt-get install postgresql-client
+   sudo psql -h 192.168.10.31 -p 5432 -U youruser -d yourdatabase
+   ````
+
+type in supersecret password and do your stuff...
 
 ## Frontend
 
