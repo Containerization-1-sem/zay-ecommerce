@@ -18,7 +18,9 @@ The frontend is based on the following template:
 4. [Frontend](#frontend)
 5. [Backend](#backend)
 
-### Cluster setup
+
+
+# Cluster setup
 
 ## Wifi network, for initial setup
 
@@ -199,7 +201,9 @@ See ours:
    sudo docker exec -it zukj2k6chfbj /bin/bash
    ```
 
-## Testing
+
+
+# Testing
 
 1. **Confirm that the frontend applikation is running**
 
@@ -221,10 +225,14 @@ response: created
 
 type in supersecret password and do your stuff...
 
-## Frontend
+
+
+# Frontend
 
 There is a specific README.md file in the frontend project
 
-## Backend
+
+
+# Backend
 
 There is a specific README.md file in the backend project
