@@ -128,18 +128,18 @@ Complete setup from dockerfile to swarm services
 
 1. **Create a docker file**:
 
-Create the dockerfiles, and place them in the root folder of the applications.
+   Create the dockerfiles, and place them in the root folder of the applications.
 
-See ours:
-* ./backend/Dockerfile
-* ./frontend/Dockerfile
+   See ours:
+   * ./backend/Dockerfile
+   * ./frontend/Dockerfile
 
 2. **Create a docker compose file**:
 
-create a docker-compose.yml file in the root folder of the repositpory
+   create a docker-compose.yml file in the root folder of the repositpory
 
-See ours:
-* ./docker-compose.yml
+   See ours:
+   * ./docker-compose.yml
 
 3. **Clone repository on manager node**
    ```bash
