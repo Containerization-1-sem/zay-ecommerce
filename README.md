@@ -14,8 +14,9 @@ The frontend is based on the following template:
    - [Complete Setup from Dockerfile to Swarm Services](#complete-setup-from-dockerfile-to-swarm-services)
    - [Docker Images](#docker-images)
    - [Docker Stack](#docker-stack)
-3. [Frontend](#frontend)
-4. [Backend](#backend)
+3. [Testing](#testing)
+4. [Frontend](#frontend)
+5. [Backend](#backend)
 
 ### Cluster setup
 
@@ -43,12 +44,12 @@ The frontend is based on the following template:
           <"SSID">:
             password: <"password">
 
-3. **Apply the netplan file to apply changes**: 
+4. **Apply the netplan file to apply changes**: 
    ```bash
    sudo netplan apply
    sudo reboot
 
-4. **Confirm the network is running**:
+5. **Confirm the network is running**:
    ```bash
    ip a
 
