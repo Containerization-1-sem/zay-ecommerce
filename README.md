@@ -37,7 +37,6 @@ The frontend is based on the following template:
 3. **Change wifi netplan .yaml file in the /etc/netplan directory with vim**: 
    ```bash
    sudo vim 00-installer-config-wifi.yaml
-   ```
 
    network:
     version: 2
@@ -48,6 +47,7 @@ The frontend is based on the following template:
         access-points:
           <"SSID">:
             password: <"password">
+   ```
 
 4. **Apply the netplan file to apply changes**: 
    ```bash
@@ -71,14 +71,14 @@ The frontend is based on the following template:
 2. **Change hostname in /etc folder**: 
    ```bash
    sudo vim hostname
+   # change <node-name>
    ```
-   change <node-name>
 
 3. **Change hosts in /etc folder**
    ```bash
    sudo vim hosts
+   # change 127.0.0.1 <node-name>
    ```
-   change 127.0.0.1 <node-name>
 
 4. **Reboot the node for changes to take effect**
    ```bash
@@ -122,7 +122,7 @@ Save your token to use for setting up workers.
 
 # Deployment Guide
 
-### Complete setup from dockerfile to swarm services
+Complete setup from dockerfile to swarm services
 
 ## Creating docker images
 
@@ -131,15 +131,15 @@ Save your token to use for setting up workers.
 Create the dockerfiles, and place them in the root folder of the applications.
 
 See ours:
-./backend/Dockerfile
-./frontend/Dockerfile
+* ./backend/Dockerfile
+* ./frontend/Dockerfile
 
 2. **Create a docker compose file**:
 
 create a docker-compose.yml file in the root folder of the repositpory
 
 See ours:
-./docker-compose.yml
+* ./docker-compose.yml
 
 3. **Clone repository on manager node**
    ```bash
@@ -159,11 +159,12 @@ See ours:
 
 6. **push to docker hub**
    ```bash
+   sudo docker login # Type in password and user for dockerhub
    sudo docker push bast38900/zay-ecommerce-frontend:latest
    ```
 
 7. **Repeat for second image**
-   repeat step 4-6 for backend image
+   * repeat step 4-6 for backend image
 
 8. **Confirm images**
    ```bash
@@ -191,14 +192,19 @@ See ours:
    sudo docker stack ps zaystack
    ```
 
-3. **See info about a container (ex. ip addres)**
+3. **See info about a node (ex. ip addres)**
    ```bash
    sudo docker inspect node02
    ```
-
-4. **interactive terminal into a container**
+4. **See info about a service or container (ex. ip addres)**
    ```bash
-   sudo docker exec -it zukj2k6chfbj /bin/bash
+   sudo docker inspect <service_id>
+   sudo docker inspect <container_id>
+   ```
+
+5. **interactive terminal into a container**
+   ```bash
+   sudo docker exec -it <container_id> /bin/bash
    ```
 
 
@@ -207,15 +213,15 @@ See ours:
 
 1. **Confirm that the frontend applikation is running**
 
-http://192.168.47.217:3001/shop => maybe changed after swarm restart
+   http://192.168.47.217:3001/shop => maybe changed after swarm restart
 
 2. **Test backend and database is working**
 
-Via Postman, send a GET request to create a test product
+   Via Postman, send a GET request to create a test product
 
-request: http://192.168.47.217:3000/test => maybe changed after swarm restart
+   request: http://192.168.47.217:3000/test => maybe changed after swarm restart
 
-response: created
+   response: created
 
 3. **Access the PostGreSQL db from manager**
    ```bash
@@ -223,7 +229,7 @@ response: created
    sudo psql -h 192.168.10.31 -p 5432 -U youruser -d yourdatabase
    ```
 
-type in supersecret password and do your stuff...
+   type in supersecret password and do your stuff...
 
 
 
